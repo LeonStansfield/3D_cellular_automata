@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2sjys1q6x5vi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgwr6"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.670588, 0.607843, 0.556863, 1)
+roughness = 0.0
+
+[node name="Stone" type="CSGBox3D"]
+use_collision = true
+material = SubResource("StandardMaterial3D_sgwr6")

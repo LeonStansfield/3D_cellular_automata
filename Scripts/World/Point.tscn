@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hjut8ju8fgqd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eql8g"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.196078)
+
+[node name="CSGSphere3D" type="CSGSphere3D"]
+radius = 0.1
+material = SubResource("StandardMaterial3D_eql8g")

@@ -1,0 +1,76 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1689940355
+collision_layer_map.txt::TextFile::-1::1689940120::0::1::::<><>::
+icon.svg::CompressedTexture2D::8535302904350618723::1689940266::1689940271::1::::<><>::
+::res://Assets/::1689940287
+::res://Assets/Audio/::1689940146
+::res://Assets/Decorations/::1689940287
+::res://Assets/Decorations/0/::1689940147
+::res://Assets/Decorations/90/::1689940147
+::res://Assets/Decorations/180/::1689940147
+::res://Assets/Decorations/270/::1689940147
+::res://Assets/Decorations/Blender_exports/::1689940147
+::res://Assets/Decorations/Kennys assets/::1689940147
+::res://Assets/Editor/::1689940147
+::res://Assets/Ocean/::1689940347
+Water.gdshader::Shader::-1::1689940119::0::1::::<><>::
+WFC_Terrain.gltf::PackedScene::969818539098600953::1689940119::1689940347::1::::<><>::
+::res://Assets/Terrain/::1689940287
+Water.gdshader::Shader::-1::1689940150::0::1::::<><>::
+::res://Assets/Terrain/Materials/::1689940147
+::res://Assets/Terrain/Modules/::1689940287
+Dirt.tscn::PackedScene::2344909889529451891::1689940150::0::1::::<><>::
+empty.tscn::PackedScene::3034551395606693479::1689940189::0::1::::<><>::
+grass.tscn::PackedScene::6996068027470601429::1689940189::0::1::::<><>::
+stone.tscn::PackedScene::4319268559836217074::1689940189::0::1::::<><>::
+::res://Assets/UI/::1689940287
+::res://Assets/UI/kenney_game-icons/::1689940287
+::res://Assets/UI/kenney_game-icons/PNG/::1689940287
+::res://Assets/UI/kenney_game-icons/PNG/Black/::1689940287
+::res://Assets/UI/kenney_game-icons/PNG/Black/1x/::1689940149
+::res://Assets/UI/kenney_game-icons/PNG/Black/2x/::1689940149
+::res://Assets/UI/kenney_game-icons/PNG/White/::1689940287
+::res://Assets/UI/kenney_game-icons/PNG/White/1x/::1689940149
+::res://Assets/UI/kenney_game-icons/PNG/White/2x/::1689940149
+::res://Assets/UI/kenney_game-icons/Spritesheet/::1689940150
+::res://Assets/UI/kenney_game-icons/Vector/::1689940150
+::res://Assets/UI/kenney_game-icons-expansion/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/Black/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/Black/1x/::1689940147
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/Black/2x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/White/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/White/1x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/PNG/White/2x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/Spritesheet/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/Game icons (base)/Vector/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/PNG/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/PNG/Black/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/PNG/Black/1x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/PNG/Black/2x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/PNG/Colored/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/PNG/Colored/1x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/PNG/Colored/2x/::1689940148
+::res://Assets/UI/kenney_game-icons-expansion/PNG/White/::1689940287
+::res://Assets/UI/kenney_game-icons-expansion/PNG/White/1x/::1689940149
+::res://Assets/UI/kenney_game-icons-expansion/PNG/White/2x/::1689940149
+::res://Assets/UI/kenney_game-icons-expansion/Spritesheet/::1689940149
+::res://Assets/UI/kenney_game-icons-expansion/Vector/::1689940149
+::res://Prefabs/::1689940287
+::res://Prefabs/Player/::1689940150
+::res://Prefabs/UI/::1689940287
+::res://Prefabs/UI/Resources/::1689940150
+::res://Prefabs/World/::1689940150
+::res://Scenes/::1689940287
+Ocean_floor.gdshader::Shader::-1::1689940150::0::1::::<><>::
+Scene.tscn::PackedScene::8920633871801744937::1689940189::0::1::::<><>::res://Scripts/World/Terrain.gd<>uid://b2sjys1q6x5vi
+::res://Scripts/::1689940287
+Globals.gd::GDScript::-1::1689940150::0::1::::<>Node<>::
+::res://Scripts/player/::1689940287
+Camera_rig.gd::GDScript::-1::1689940150::0::1::::<>Node3D<>::
+free_cam.gd::GDScript::-1::1689940120::0::1::::FreeLookCamera<>Camera3D<>::
+::res://Scripts/UI/::1689940150
+::res://Scripts/World/::1689940287
+Point.tscn::PackedScene::511151323319093043::1689940189::0::1::::<><>::
+Terrain.gd::GDScript::-1::1689940150::0::1::::<>Node3D<>::

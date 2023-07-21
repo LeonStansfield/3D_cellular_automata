@@ -1,0 +1,120 @@
+[gd_scene load_steps=19 format=3 uid="uid://d0dhsiip7g3ub"]
+
+[ext_resource type="Script" path="res://Scripts/World/Terrain.gd" id="1_7kevk"]
+[ext_resource type="PackedScene" uid="uid://b2sjys1q6x5vi" path="res://Assets/Terrain/Modules/stone.tscn" id="2_u31e8"]
+[ext_resource type="PackedScene" uid="uid://c6w7holbsy6a0" path="res://Assets/Terrain/Modules/grass.tscn" id="3_f5p2u"]
+[ext_resource type="PackedScene" uid="uid://8n5k8ynj03al" path="res://Assets/Terrain/Modules/Dirt.tscn" id="4_cuumq"]
+[ext_resource type="Shader" path="res://Assets/Ocean/Water.gdshader" id="5_gakst"]
+[ext_resource type="Script" path="res://Scripts/player/Camera_rig.gd" id="7_5l5i1"]
+[ext_resource type="Shader" path="res://Scenes/Ocean_floor.gdshader" id="7_knbcm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s6st7"]
+sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
+ground_bottom_color = Color(0.435294, 0.490196, 0.54902, 1)
+ground_curve = 0.09
+
+[sub_resource type="Sky" id="Sky_cxw8c"]
+sky_material = SubResource("ProceduralSkyMaterial_s6st7")
+
+[sub_resource type="Environment" id="Environment_6a8vu"]
+background_mode = 2
+sky = SubResource("Sky_cxw8c")
+tonemap_mode = 3
+ssao_enabled = true
+ssao_intensity = 3.0
+glow_enabled = true
+fog_light_color = Color(0.545098, 0.662745, 0.698039, 1)
+fog_density = 0.001
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_if7vh"]
+size = Vector3(250, 1, 250)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1lfir"]
+top_radius = 2500.0
+bottom_radius = 2500.0
+radial_segments = 12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kc8bt"]
+render_priority = 0
+shader = ExtResource("5_gakst")
+shader_parameter/beer_factor = 0.8
+shader_parameter/foam_distance = 0.01
+shader_parameter/foam_max_distance = 0.4
+shader_parameter/foam_min_distance = 0.04
+shader_parameter/foam_color = Color(1, 1, 1, 0.219608)
+shader_parameter/_DepthGradientShallow = Color(0.882353, 0.980392, 0.960784, 1)
+shader_parameter/_DepthGradientDeep = Color(0.54902, 0.670588, 0.631373, 1)
+shader_parameter/_DepthMaxDistance = 1.0
+shader_parameter/_DepthFactor = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_umflt"]
+size = Vector2(500, 500)
+subdivide_width = 256
+subdivide_depth = 256
+
+[sub_resource type="Gradient" id="Gradient_oujwg"]
+offsets = PackedFloat32Array(0.294258, 0.744019)
+colors = PackedColorArray(0, 0, 0, 1, 0.720467, 0.720468, 0.720467, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rv6ls"]
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a5gb2"]
+color_ramp = SubResource("Gradient_oujwg")
+noise = SubResource("FastNoiseLite_rv6ls")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f40wj"]
+render_priority = 0
+shader = ExtResource("7_knbcm")
+shader_parameter/displacement_amount = 10.0
+shader_parameter/color = Color(0.823529, 0.788235, 0.647059, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_a5gb2")
+
+[node name="Scene" type="Node3D"]
+
+[node name="Terrain" type="Node3D" parent="."]
+script = ExtResource("1_7kevk")
+blockPrefab = ExtResource("2_u31e8")
+grassPrefab = ExtResource("3_f5p2u")
+dirtPrefab = ExtResource("4_cuumq")
+
+[node name="Environement" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environement"]
+environment = SubResource("Environment_6a8vu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environement"]
+transform = Transform3D(0.707107, 0.612372, -0.353554, 0, 0.5, 0.866025, 0.707107, -0.612372, 0.353554, 0, 10, 0)
+light_energy = 0.6
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environement"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environement/StaticBody3D"]
+shape = SubResource("BoxShape3D_if7vh")
+
+[node name="Ocean" type="CSGMesh3D" parent="Environement/StaticBody3D"]
+mesh = SubResource("CylinderMesh_1lfir")
+material = SubResource("ShaderMaterial_kc8bt")
+
+[node name="DynamicOcean_floor" type="CSGMesh3D" parent="Environement/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+mesh = SubResource("PlaneMesh_umflt")
+material = SubResource("ShaderMaterial_f40wj")
+
+[node name="CameraRigY" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 12.5, 12.5)
+script = ExtResource("7_5l5i1")
+
+[node name="CameraRigX" type="Node3D" parent="CameraRigY"]
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraRigY/CameraRigX"]
+target_position = Vector3(0, 0, 50)
+collision_mask = 2
+
+[node name="Camera3D" type="Camera3D" parent="CameraRigY/CameraRigX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
